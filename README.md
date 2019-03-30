@@ -37,3 +37,7 @@ fn test_string_builder() {
 }
 ```
 
+# License
+  
+MIT
+
