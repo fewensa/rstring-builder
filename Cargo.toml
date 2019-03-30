@@ -1,6 +1,6 @@
 [package]
 name = "rstring-builder"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["fewensa <fewensa@protonmail.com>"]
 description = "String builder type"
 repository = "https://github.com/fewensa/rstring-builder"
