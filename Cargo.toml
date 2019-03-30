@@ -6,6 +6,12 @@ description = "String builder type"
 repository = "https://github.com/fewensa/rstring-builder"
 license = "MIT"
 keywords = ["string"]
+include = [
+  "Cargo.toml",
+  "**/*.rs",
+  "README.md",
+  "LICENSE"
+]
 readme = "README.md"
 edition = "2018"
 
