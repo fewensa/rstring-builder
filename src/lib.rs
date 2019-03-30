@@ -8,29 +8,80 @@ pub struct StringBuilder {
 }
 
 impl StringBuilder {
+  ///
+  /// Return a new `StringBuilder` with default initial capacity.
   pub fn new() -> StringBuilder {
     StringBuilder::with_capacity(DEFAULT_CAPACITY)
   }
 
+  ///
+  /// Return a new `StringBuilder` with an initial capacity.
+  ///
   pub fn with_capacity(size: usize) -> StringBuilder {
     StringBuilder {
       chars: Vec::with_capacity(size),
     }
   }
 
+  /// Add a type that can be viewed as a slice of bytes.
+  ///
+  /// # Example
+  ///
+  /// ```rust
+  /// use rstring_builder::StringBuilder;
+  /// let mut builder = StringBuilder::new();
+  /// builder.append("some string");
+  /// ```
   pub fn append<T: Vcharsable>(&mut self, buff: T) -> &mut StringBuilder {
     self.chars.append(buff.vechars().as_mut());
     self
   }
 
+  /// Return the current length in chars of the underlying buffer.
+  ///
+  /// # Example
+  ///
+  /// ```rust
+  /// use rstring_builder::StringBuilder;
+  ///
+  /// let mut builder = StringBuilder::new();
+  /// builder.append("four");
+  /// assert_eq!(builder.len(), 4);
+  /// builder.append("華文");
+  /// assert_eq!(builder.len(), 6);
+  /// ```
   pub fn len(&self) -> usize {
     self.chars.len()
   }
 
+  /// Delete chars of index
+  ///
+  /// # Example
+  ///
+  /// ```rust
+  /// use rstring_builder::StringBuilder;
+  ///
+  /// let mut builder = StringBuilder::new();
+  /// builder.append("abc");
+  /// assert_eq!("bc".to_string(), builder.delete_at(0).string());
+  /// assert_eq!("b".to_string(), builder.delete_at(1).string());
+  /// ```
   pub fn delete_at(&mut self, start: usize) -> &mut StringBuilder {
     self.delete(start, start + 1)
   }
 
+  /// Delete chars range
+  ///
+  /// # Example
+  ///
+  /// ```rust
+  /// use rstring_builder::StringBuilder;
+  ///
+  /// let mut builder = StringBuilder::new();
+  /// builder.append("abc\ndef");
+  /// assert_eq!("adef".to_string(), builder.delete(1, 4).string());
+  /// assert_eq!("".to_string(), builder.delete(0, builder.len()).string());
+  /// ```
   pub fn delete(&mut self, start: usize, end: usize) -> &mut StringBuilder {
     if end == 0 {
       panic!("end index must be greater then 0. end: {}", end);
@@ -47,11 +98,33 @@ impl StringBuilder {
     self
   }
 
+  /// Clear string builder.
+  ///
+  /// # Example
+  ///
+  /// ```rust
+  /// use rstring_builder::StringBuilder;
+  ///
+  /// let mut builder = StringBuilder::new();
+  /// builder.append("abc\ndef");
+  /// assert_eq!("".to_string(), builder.clear().string());
+  /// ```
   pub fn clear(&mut self) -> &mut StringBuilder {
     self.chars.clear();
     self
   }
 
+  /// Return String
+  ///
+  /// # Example
+  ///
+  /// ```rust
+  /// use rstring_builder::StringBuilder;
+  ///
+  /// let mut builder = StringBuilder::new();
+  /// builder.append("abc\ndef");
+  /// assert_eq!("abc\ndef".to_string(), builder.string());
+  /// ```
   pub fn string(&self) -> String {
     self.chars.clone().into_iter().collect()
   }
