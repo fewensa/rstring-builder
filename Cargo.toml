@@ -1,0 +1,7 @@
+[package]
+name = "rstring-builder"
+version = "0.1.0"
+authors = ["fewensa <fewensa@protonmail.com>"]
+edition = "2018"
+
+[dependencies]
