@@ -13,9 +13,9 @@ steps:
       - name: git_config
         path: /root/.gitconfig
     commands:
-      - echo $DRONE_TAG
-      - if [ -z "$DRONE_TAG" ]; then git remote add github $REPO_REMOTE; fi
-      - if [ -n "$DRONE_TAG" ]; then git push github $DRONE_BRANCH; fi
+      - git remote add github $REPO_REMOTE
+      - if [ -z "$DRONE_TAG" ]; then git push github $DRONE_BRANCH; fi # empty tag push branch
+      - if [ -n "$DRONE_TAG" ]; then git push github $DRONE_TAG; fi # has tag push tag
 
 volumes:
   - name: git_credentials
