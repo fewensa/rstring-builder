@@ -19,7 +19,7 @@ steps:
       - git remote add github $REPO_REMOTE
       - git push github $DRONE_BRANCH
 
-  - name: sync_push
+  - name: sync_tag
     image: alpine/git:1.0.7
     environment:
       REPO_REMOTE: https://github.com/fewensa/rstring-builder.git
