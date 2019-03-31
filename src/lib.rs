@@ -128,6 +128,20 @@ impl StringBuilder {
   pub fn string(&self) -> String {
     self.chars.clone().into_iter().collect()
   }
+
+  /// text builder is empty
+  ///  # Example
+  /// ```rust
+  /// use rstring_builder::StringBuilder;
+  ///
+  /// let mut builder = StringBuilder::new();
+  /// assert_eq!(true, builder.is_empty());
+  /// builder.append("abc\ndef");
+  /// assert_eq!(false, builder.is_empty());
+  /// ```
+  pub fn is_empty(&self) -> bool {
+    self.len() == 0
+  }
 }
 
 impl ToString for StringBuilder {
