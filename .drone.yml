@@ -34,7 +34,7 @@ steps:
     commands:
       - git remote add github $REPO_REMOTE
       - git fetch origin
-      - git checkout -b $DRONE_BRANCH origin/$DRONE_BRANCH
+      - git checkout master
       - git push github $DRONE_BRANCH
 
 volumes:
