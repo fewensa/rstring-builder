@@ -62,7 +62,7 @@ steps:
         path: /root/.cargo
     commands:
       - sh -f /root/.cargo/credentials
-#      - cargo publish
+      - cargo publish
 
 volumes:
   - name: cargo
