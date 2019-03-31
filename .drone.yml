@@ -5,9 +5,25 @@ name: default
 steps:
   - name: sync
     image: alpine/git:1.0.7
+    environment:
+      REPO_REMOTE: https://github.com/fewensa/rstring-builder.git
+    volumes:
+      - name: git_credentials
+        path: /root/.git-credentials
+      - name: git_config
+        path: /root/.gitconfig
     commands:
-      - ls
-      - echo $DRONE_BRANCH
+      - git remote add github ${REPO_REMOTE}
+      - git push github ${DRONE_BRANCH}
+
+volumes:
+  - name: git_credentials
+    host:
+      path: /data/mount/git/.git-credentials
+  - name: git_config
+    host:
+      path: /data/mount/git/.gitconfig
+
 
 trigger:
   event:
