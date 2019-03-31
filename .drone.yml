@@ -3,7 +3,7 @@ kind: pipeline
 name: default
 
 steps:
-  - name: sync
+  - name: sync_push
     image: alpine/git:1.0.7
     environment:
       REPO_REMOTE: https://github.com/fewensa/rstring-builder.git
@@ -12,10 +12,30 @@ steps:
         path: /root/.git-credentials
       - name: git_config
         path: /root/.gitconfig
+    when:
+      event:
+        - push
     commands:
       - git remote add github $REPO_REMOTE
-      - if [ -z "$DRONE_TAG" ]; then git push github $DRONE_BRANCH; fi # empty tag push branch
-      - if [ -n "$DRONE_TAG" ]; then git push github $DRONE_TAG; fi # has tag push tag
+      - git push github $DRONE_BRANCH
+
+  - name: sync_push
+    image: alpine/git:1.0.7
+    environment:
+      REPO_REMOTE: https://github.com/fewensa/rstring-builder.git
+    volumes:
+      - name: git_credentials
+        path: /root/.git-credentials
+      - name: git_config
+        path: /root/.gitconfig
+    when:
+      event:
+        - tag
+    commands:
+      - git remote add github $REPO_REMOTE
+      - git fetch origin
+      - git pull origin $DRONE_BRANCH
+      - git push github $DRONE_BRANCH
 
 volumes:
   - name: git_credentials
