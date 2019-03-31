@@ -34,8 +34,7 @@ steps:
     commands:
       - git remote add github $REPO_REMOTE
       - git fetch origin
-      - git checkout master
-      - git push github $DRONE_BRANCH
+      - git push github $DRONE_TAG
 
 volumes:
   - name: git_credentials
