@@ -13,8 +13,8 @@ steps:
       - name: git_config
         path: /root/.gitconfig
     commands:
-      - git remote add github ${REPO_REMOTE}
-      - git push github ${DRONE_BRANCH}
+      - git remote add github $REPO_REMOTE
+      - git push github $DRONE_BRANCH
 
 volumes:
   - name: git_credentials
