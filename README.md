@@ -7,7 +7,27 @@ This create is a string builder type. If you want support append your type, you 
 
 `rstring-builder` is designed to be character built, so `Vcharsable` will return `Vec<char>` and `rstring-bulder` is actually maintaining this array.
 
-Now support `&str` `String` `OsStr` and `char`.
+Now support
+
+- &str
+- String
+- OsStr
+- char
+- bool
+- i8
+- i16
+- i32
+- i64
+- i128
+- isize
+- u8
+- u16
+- u32
+- u64
+- u128
+- usize
+- f32
+- f64 
 
 # Usage
 
