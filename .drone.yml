@@ -7,10 +7,11 @@ steps:
     image: alpine/git:1.0.7
     commands:
       - ls
+      - echo $DRONE_BRANCH
 
 trigger:
-  branch:
-    - master
+  event:
+    - push
 
 ---
 kind: pipeline
