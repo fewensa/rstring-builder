@@ -2,6 +2,16 @@
 kind: pipeline
 name: default
 
+steps:
+  - name: sync
+    image: alpine/git:1.0.7
+    commands:
+      - ls
+
+trigger:
+  branch:
+    - *
+
 ---
 kind: pipeline
 name: publish
