@@ -15,7 +15,7 @@ fn test_string_builder() {
   assert_eq!("".to_string(), builder.clear().to_string());
 }
 
-`#[test]
+#[test]
 fn test_bool() {
   let string = StringBuilder::new()
     .append(false)
