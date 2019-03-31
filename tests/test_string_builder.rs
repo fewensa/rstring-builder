@@ -14,3 +14,25 @@ fn test_string_builder() {
   assert_eq!("b".to_string(), builder.delete(1, builder.len()).string());
   assert_eq!("".to_string(), builder.clear().to_string());
 }
+
+`#[test]
+fn test_bool() {
+  let string = StringBuilder::new()
+    .append(false)
+    .append(true)
+    .string();
+  println!("{:?}", string);
+}
+
+#[test]
+fn test_num() {
+  let string = StringBuilder::new()
+    .append(9003 as usize)
+    .append(2 as u8)
+    .append(-1 as i8)
+    .append(3 as i128)
+    .append(0.3 as f32)
+    .append(8.9 as f64)
+    .string();
+  println!("{:?}", string);
+}

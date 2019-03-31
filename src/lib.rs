@@ -165,3 +165,150 @@ impl Vcharsable for char {
     vec
   }
 }
+
+impl Vcharsable for bool {
+  fn vechars(&self) -> Vec<char> {
+    if *self {
+      let mut vec = Vec::with_capacity(4);
+      vec.push('t');
+      vec.push('r');
+      vec.push('u');
+      vec.push('e');
+      return vec;
+    }
+
+    let mut vec = Vec::with_capacity(5);
+    vec.push('f');
+    vec.push('a');
+    vec.push('l');
+    vec.push('s');
+    vec.push('e');
+    vec
+  }
+}
+
+impl Vcharsable for usize {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for u8 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for u16 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for u32 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for u64 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for u128 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for isize {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for i8 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for i16 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for i32 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for i64 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for i128 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for f32 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
+
+impl Vcharsable for f64 {
+  fn vechars(&self) -> Vec<char> {
+    let num_str: String = self.to_string();
+    let mut vec = Vec::with_capacity(num_str.len());
+    num_str.chars().for_each(|ch| vec.push(ch));
+    vec
+  }
+}
