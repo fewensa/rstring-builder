@@ -44,12 +44,6 @@ volumes:
     host:
       path: /data/mount/git/.gitconfig
 
-
-trigger:
-  event:
-    - push
-    - tag
-
 ---
 kind: pipeline
 name: publish
