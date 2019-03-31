@@ -14,8 +14,8 @@ steps:
         path: /root/.gitconfig
     commands:
       - echo $DRONE_TAG
-      - git remote add github $REPO_REMOTE
-      - git push github $DRONE_BRANCH
+      - if [ -z "$DRONE_TAG" ]; then git remote add github $REPO_REMOTE; fi
+      - if [ -n "$DRONE_TAG" ]; then git push github $DRONE_BRANCH; fi
 
 volumes:
   - name: git_credentials
