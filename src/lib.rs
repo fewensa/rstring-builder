@@ -154,6 +154,12 @@ pub trait Vcharsable {
   fn vechars(&self) -> Vec<char>;
 }
 
+impl Vcharsable for StringBuilder {
+  fn vechars(&self) -> Vec<char> {
+    self.string().chars().collect()
+  }
+}
+
 impl Vcharsable for String {
   fn vechars(&self) -> Vec<char> {
     self.chars().collect()

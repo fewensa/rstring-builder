@@ -1,9 +1,9 @@
 [package]
 name = "rstring-builder"
-version = "0.1.3"
+version = "0.1.4"
 authors = ["fewensa <fewensa@protonmail.com>"]
 description = "String builder type"
-homepage = "https://github.com/fewensa/riptables"
+homepage = "https://github.com/fewensa/rstring-builder"
 repository = "https://github.com/fewensa/rstring-builder"
 license = "MIT"
 keywords = ["string"]
